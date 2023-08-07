@@ -1,9 +1,18 @@
 [
     {
+        "id": "r1",
         "name": "Lava Bar",
-        "address": "ha-yovel 7, Raanana, Center discrict, Israel",
+        "address": "ha-yovel 7, Raanana, Israel",
         "cuisine": "Bar",
         "website": "https://lava-site.firebaseapp.com/",
         "description": "cool place, young environment and the service is great! "
-    } 
+    },
+    {
+        "name": "Japanika",
+        "address": "Ha-Sadna'ot St 10, Herzliya, Israel",
+        "cuisine": "Chinese",
+        "website": "https://www.japanika.net/",
+        "description": "great food quality and good service",
+        "id": "8808d919-4ce2-4c69-863b-362dc8ca4270"
+    }
 ]
