@@ -22,9 +22,13 @@ app.get('/restaurants', function (req, res) {
     res.render('restaurants', { numOfRestaurants: storedRes.length, restaurants: storedRes });
 });
 
+app.get('/restaurants/:id', function (req, res) {
+    const restaurantId = req.params.id;
+    res.render('restaurant-detail', {rid: restaurantId});
+});
+
 app.get('/reccomendations', function (req, res) {
     res.render('recommend');
-
 });
 
 app.post('/reccomendations', function (req, res) {
@@ -42,16 +46,11 @@ app.post('/reccomendations', function (req, res) {
 
 app.get('/confirm', function (req, res) {
     res.render('confirm');
-
 });
 
 app.get('/about', function (req, res) {
     res.render('about');
-
 });
-
-
-
 
 
 app.listen(3000);
