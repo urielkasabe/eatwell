@@ -33,11 +33,10 @@ app.get('/restaurants/:id', function (req, res) {
     for (restaurant of storedRes) {
         if (restaurant.id === restaurantId) {
            return res.render('restaurant-detail', { restaurant: restaurant });
-        } else {
-
         }
     }
 
+    res.render('404');
 
 });
 
