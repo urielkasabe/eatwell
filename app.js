@@ -67,4 +67,8 @@ app.get('/about', function (req, res) {
 });
 
 
+app.use(function(req, res) {
+    res.render('404');
+});
+
 app.listen(3000);
