@@ -39,12 +39,16 @@ main {
 
 .restaurant-actions {
   margin-top: 1rem;
-  text-align: right;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
 }
 
 .restaurant-actions a,
 #sort {
   padding: 0.5rem 1.5rem;
+  margin: 0.3rem;
   background-color: rgb(202, 158, 62);
   border-radius: 4px;
   color: white;
@@ -67,4 +71,21 @@ main {
   background-color: rgb(250, 233, 194);
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5);
   padding: 3rem;
+}
+
+@media (min-width: 60rem) {
+  .restaurant-actions {
+    margin-top: 2rem;
+    text-align: right;
+    display: block;
+  }
+
+}
+
+@media (min-width: 80rem) {
+  .restaurant-actions {
+    margin-top: 2rem;
+    text-align: right;
+    display: block;
+  }
 }

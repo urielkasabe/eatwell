@@ -8,13 +8,13 @@ body {
 main {
   width: 95%;
   max-width: 50rem;
-  margin: 3rem auto;
+  margin: 5rem auto;
   text-align: center;
 }
 
 main h1 {
   font-family: 'Roboto Condensed', 'Roboto', sans-serif;
-  color:rgb(202, 158, 62);
+  color: rgb(202, 158, 62);
 }
 
 main p {
@@ -39,10 +39,10 @@ main p {
 
 #logo a {
   text-decoration: none;
-  color: white;
+  /*   color: white;
   padding: 1rem 2.5rem;
   background-color: rgb(240, 167, 9);
-  border-radius: 50%;
+  border-radius: 50%; */
 }
 
 #main-header nav {
@@ -57,10 +57,12 @@ main p {
 }
 
 #main-header .nav-item {
-  margin-left: 1rem;
+  margin-left: 8rem;
+  margin-top: 5.5rem;
 }
 
 #main-header .nav-item a {
+  font-weight: 600;
   text-decoration: none;
   color: rgb(139, 100, 8);
   padding: 0.25rem 0.75rem;
@@ -69,7 +71,8 @@ main p {
 
 #main-header .nav-item a:hover,
 #main-header .nav-item a:active {
-  background-color: rgb(245, 222, 173);
+  /* background-color: rgb(245, 222, 173); */
+  color: rgb(202, 158, 62);
 }
 
 #drawer-btn {
@@ -128,6 +131,14 @@ main p {
   color: rgb(240, 167, 9);
 }
 
+svg {
+  height: 8rem;
+  width: 8rem;
+  position: relative;
+  top: 2rem;
+  left: 0;
+}
+
 @media (min-width: 60rem) {
   #main-header {
     padding: 0 5%;
@@ -144,11 +155,25 @@ main p {
   #mobile-drawer.open {
     display: none;
   }
-}
 
+  svg {
+    height: 10rem;
+    width: 10rem;
+    position: fixed;
+    top: 0;
+    left: 10rem;
+  }
+}
 
 @media (min-width: 80rem) {
   #main-header {
     padding: 0 15%;
+  }
+  svg {
+    height: 10rem;
+    width: 10rem;
+    position: fixed;
+    top: 0;
+    left: 10rem;
   }
 }
