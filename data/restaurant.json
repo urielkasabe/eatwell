@@ -14,5 +14,13 @@
         "website": "https://www.japanika.net/",
         "description": "great food quality and good service",
         "id": "8808d919-4ce2-4c69-863b-362dc8ca4270"
+    },
+    {
+        "name": "Koi",
+        "address": "Via Monteoliveto, 35, 80134 Napoli NA, Italy",
+        "cuisine": "Chinese",
+        "website": "https://www.koinapoli.it/",
+        "description": "This is by far one of the best sushi I've ever ate.\r\nThe place is gorgeous, service is excellent and there is a full variety of the food and it arrives very fast (1-3 minutes).",
+        "id": "3794b68f-7175-484f-8d99-69a8b002b765"
     }
 ]

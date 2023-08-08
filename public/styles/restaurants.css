@@ -61,3 +61,10 @@ main {
 #sort {
   border: none;
 }
+
+.container {
+  border-radius: 16px;
+  background-color: rgb(250, 233, 194);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5);
+  padding: 3rem;
+}
