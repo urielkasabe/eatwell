@@ -1,8 +1,9 @@
-const fs = require('fs');
 const path = require('path');
 
 const express = require('express');
 const uuid = require('uuid');
+
+const resData = require('./util/restaurant-data');
 
 const app = express();
 
@@ -17,22 +18,18 @@ app.get('/', function (req, res) {
 })
 
 app.get('/restaurants', function (req, res) {
-    const FilePath = path.join(__dirname, 'data', 'restaurants.json');
-    const fileData = fs.readFileSync(FilePath);
-    const storedRes = JSON.parse(fileData);
+    const storedRestaurants = resData.getStoredRestaurants();
 
-    res.render('restaurants', { numOfRestaurants: storedRes.length, restaurants: storedRes });
+    res.render('restaurants', { numOfRestaurants: storedRestaurants.length, restaurants: storedRestaurants });
 });
 
 app.get('/restaurants/:id', function (req, res) {
     const restaurantId = req.params.id;
-    const FilePath = path.join(__dirname, 'data', 'restaurants.json');
-    const fileData = fs.readFileSync(FilePath);
-    const storedRes = JSON.parse(fileData);
+    const storedRestaurants = resData.getStoredRestaurants();
 
-    for (restaurant of storedRes) {
+    for (restaurant of storedRestaurants) {
         if (restaurant.id === restaurantId) {
-           return res.render('restaurant-detail', { restaurant: restaurant });
+            return res.render('restaurant-detail', { restaurant: restaurant });
         }
     }
 
@@ -47,13 +44,11 @@ app.get('/reccomendations', function (req, res) {
 app.post('/reccomendations', function (req, res) {
     const restaurant = req.body;
     restaurant.id = uuid.v4();
-    const FilePath = path.join(__dirname, 'data', 'restaurants.json');
-    const fileData = fs.readFileSync(FilePath);
-    const storedRes = JSON.parse(fileData);
+    const storedRestaurants = resData.getStoredRestaurants();
 
-    storedRes.push(restaurant);
+    storedRestaurants.push(restaurant);
 
-    fs.writeFileSync(FilePath, JSON.stringify(storedRes));
+    resData.storeRes(storedRestaurants);
 
     res.redirect('/confirm');
 });
@@ -67,11 +62,11 @@ app.get('/about', function (req, res) {
 });
 
 
-app.use(function(req, res) {
+app.use(function (req, res) {
     res.status(404).render('404');
 });
 
-app.use(function(error, req, res, next) {
+app.use(function (error, req, res, next) {
     res.status(500).render('500');
 });
 
