@@ -7,9 +7,30 @@ const resData = require('../util/restaurant-data');
 
 
 router.get('/restaurants', function (req, res) {
+    let order = req.query.order;
+    let nextOrder = 'dsc';
+    if (order !== 'asc' && order !== 'dsc') {
+        order = 'asc';
+    }
+    if (order === 'dsc') {
+        nextOrder = 'asc'
+    }
+
     const storedRestaurants = resData.getStoredRestaurants();
 
-    res.render('restaurants', { numOfRestaurants: storedRestaurants.length, restaurants: storedRestaurants });
+    storedRestaurants.sort(function (resA, resB) {
+        if ((order === 'asc' && resA.name > resB.name) ||
+            (order === 'dsc' && resB.name > resA.name)) {
+            return 1;
+        }
+        return -1;
+    });
+
+    res.render('restaurants', { 
+        numOfRestaurants: storedRestaurants.length,
+         restaurants: storedRestaurants,
+         nextOrder: nextOrder
+         });
 });
 
 router.get('/restaurants/:id', function (req, res) {
